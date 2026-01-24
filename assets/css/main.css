@@ -23,9 +23,9 @@
   /* Background color for the entire website, including individual sections */
   --default-color: #272829;
   /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #fafafa;
+  --heading-color: #050d18;
   /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ffffff;
+  --accent-color: #149ddd;
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff;
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
@@ -35,15 +35,15 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #f8f9fc;
+  --nav-color: #a8a9b4;
   /* The default color of the main navmenu links */
   --nav-hover-color: #ffffff;
   /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #fcfcfc;
+  --nav-mobile-background-color: #040b14;
   /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #fcfcfc;
+  --nav-dropdown-background-color: #040b14;
   /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #fafafa;
+  --nav-dropdown-color: #a8a9b4;
   /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #ffffff;
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
@@ -57,11 +57,11 @@
 }
 
 .dark-background {
-  --background-color: #ffffff;
-  --default-color: #272829;
-  --heading-color: #315e79;
-  --surface-color: #f9f9f9;
-  --contrast-color: #00000080;
+  --background-color: #040b14;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #151f2b;
+  --contrast-color: #ffffff;
 }
 
 /* Smooth scroll */
@@ -72,14 +72,8 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 body {
-  color: #ffffff;
-  /* Contrast against liquid background */
+  color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
 }
@@ -103,12 +97,6 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-  /* Required for background-clip on some browsers */
 }
 
 /* PHP Email Form Messages
@@ -185,10 +173,9 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   object-fit: cover;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  border-radius: 50%;
+  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .header .logo {
@@ -575,49 +562,63 @@ section,
   position: relative;
   padding: 80px 0;
   display: flex;
-  align-items: flex-end;
-  /* Align to bottom */
-  justify-content: flex-start;
-  /* Align to left */
-  padding-left: 20px;
-  /* Optional: adds space from left edge */
-  padding-bottom: 20px;
-  /* Optional: adds space from bottom edge */
+  align-items: center;
+  justify-content: center;
 }
 
-.hero img {
+.hero img,
+.hero-video {
   position: absolute;
   inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
   z-index: 1;
 }
 
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--background-color), transparent 70%);
+  z-index: 2;
+}
+
+.about-profile-img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.status-active {
+  color: #28a745 !important;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-active::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #28a745;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
 .hero:before {
-  /* content: ""; */
-  /* background: color-mix(in srgb, var(--background-color), transparent 70%); */
-  /* position: absolute; */
-  /* inset: 0; */
-  /* z-index: 2; */
+  display: none;
 }
 
 .hero .container {
   position: relative;
   z-index: 3;
-  /* background: rgba(255, 255, 255, 0.1); */
-  /* backdrop-filter: blur(10px); */
-  /* -webkit-backdrop-filter: blur(10px); */
-  border-radius: 15px;
-  padding: 30px;
-  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-  /* border: 1px solid rgba(255, 255, 255, 0.3); */
-  max-width: 600px;
-  margin-left: 5%;
-  /* Align left with some spacing */
-  /* margin-right: auto; Default behavior but ensuring it's not centered */
 }
 
 .hero h2 {
@@ -669,11 +670,6 @@ section,
 .about .content h2 {
   font-weight: 700;
   font-size: 24px;
-}
-
-.about .img-fluid.rounded-circle {
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
 }
 
 .about .content ul {
@@ -768,30 +764,6 @@ section,
   background-color: var(--accent-color);
 }
 
-.skills .progress-bar.bg-html {
-  background-color: #e34c26;
-}
-
-.skills .progress-bar.bg-css {
-  background-color: #264de4;
-}
-
-.skills .progress-bar.bg-javascript {
-  background-color: #f7df1e;
-}
-
-.skills .progress-bar.bg-php {
-  background-color: #8892be;
-}
-
-.skills .progress-bar.bg-wordpress {
-  background-color: #21759b;
-}
-
-.skills .progress-bar.bg-photoshop {
-  background-color: #31a8ff;
-}
-
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
@@ -800,13 +772,11 @@ section,
   font-size: 26px;
   font-weight: 700;
   margin-top: 20px;
-  margin-bottom: 15px;
-  /* Reduced from 20px */
+  margin-bottom: 20px;
 }
 
 .resume .resume-item {
-  padding: 0 0 10px 20px;
-  /* Reduced bottom padding from 20px to 10px */
+  padding: 0 0 20px 20px;
   margin-top: -2px;
   border-left: 2px solid var(--accent-color);
   position: relative;
@@ -818,8 +788,7 @@ section,
   font-weight: 600;
   text-transform: uppercase;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 5px;
-  /* Reduced from 10px */
+  margin-bottom: 10px;
 }
 
 .resume .resume-item h5 {
@@ -904,9 +873,6 @@ section,
 
 .portfolio .portfolio-content img {
   transition: 0.3s;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
 }
 
 .portfolio .portfolio-content .portfolio-info {
@@ -1345,188 +1311,4 @@ section,
   font-size: 20px;
   margin-right: 8px;
   color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-/* .starter-section removed */
-
-/* ===============================
-   GLASSMORPHISM BASE VARIABLES
-================================ */
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.12);
-  --glass-border: rgba(255, 255, 255, 0.25);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  --glass-blur: blur(18px);
-  --accent-gradient: linear-gradient(135deg,
-      rgba(0, 123, 255, 0.35),
-      rgba(138, 43, 226, 0.35));
-}
-
-/* ===============================
-   GLOBAL LIQUID BACKGROUND
-================================ */
-body {
-  background: radial-gradient(circle at top left,
-      rgba(0, 123, 255, 0.25),
-      transparent 40%),
-    radial-gradient(circle at bottom right,
-      rgba(138, 43, 226, 0.25),
-      transparent 40%),
-    #0b0f1a;
-  color: #ffffff;
-}
-
-/* ===============================
-   GLASS SECTION STYLE
-================================ */
-section {
-  position: relative;
-  margin: 3rem auto;
-  /* Removed glass effect to reduce clutter */
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-/* Remove solid backgrounds */
-.light-background,
-.dark-background {
-  background: transparent !important;
-}
-
-/* ===============================
-   CONTAINERS AS GLASS CARDS
-================================ */
-/* .container removed from glass effect */
-/* .container removed from glass effect */
-.info-wrap,
-/* .resume-item removed from glass effect */
-.service-item,
-.stats-item,
-.testimonial-item,
-.portfolio-content,
-/* .skills-content removed from glass effect */
-/* .progress-bar-wrap removed from glass effect */
-.form-control {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
-
-/* ===============================
-   HERO LIQUID GLASS
-================================ */
-#hero {
-  min-height: 100vh;
-  border-radius: 0;
-}
-
-#hero img {
-  filter: brightness(0.55) saturate(1.2);
-}
-
-#hero .container {
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: 28px;
-  padding: 3rem;
-}
-
-/* ===============================
-   HEADER / SIDEBAR GLASS
-================================ */
-.header {
-  background: rgba(10, 15, 30, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* ===============================
-   BUTTONS – LIQUID GLASS
-================================ */
-button,
-.btn {
-  background: var(--accent-gradient);
-  border: none;
-  color: #fff;
-  backdrop-filter: blur(10px);
-  border-radius: 999px;
-  padding: 10px 26px;
-  transition: all 0.3s ease;
-}
-
-/* About section larger image */
-.about .profile-img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.about .profile-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-
-button:hover,
-.btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 123, 255, 0.45);
-}
-
-/* ===============================
-   INPUTS / FORMS
-================================ */
-.form-control,
-textarea {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.form-control:focus {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border-color: #0d6efd;
-  box-shadow: none;
-}
-
-/* ===============================
-   PROGRESS BARS
-================================ */
-.progress {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-}
-
-.progress-bar {
-  background: linear-gradient(90deg,
-      #0d6efd,
-      #6610f2);
-}
-
-/* ===============================
-   PORTFOLIO IMAGE GLASS
-================================ */
-.portfolio-content img {
-  border-radius: 16px;
-}
-
-/* ===============================
-   FOOTER GLASS
-================================ */
-footer {
-  background: rgba(10, 15, 30, 0.6);
-  backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }

@@ -1,0 +1,55 @@
+/*--------------------------------------------------------------
+# Portfolio & Contact Button Styles
+--------------------------------------------------------------*/
+
+/* Glassmorphism Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-background .glass-effect {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.light-background .glass-effect {
+    background: rgba(255, 255, 255, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-portfolio {
+    background: var(--accent-color);
+    color: #fff;
+    border: 0;
+    padding: 10px 30px;
+    transition: 0.4s;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.btn-portfolio:hover {
+    background: color-mix(in srgb, var(--accent-color), white 15%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-portfolio:active {
+    transform: translateY(0);
+}
+
+.portfolio-external-link {
+    padding: 40px 0;
+    background: color-mix(in srgb, var(--default-color), transparent 97%);
+    border-radius: 12px;
+    margin: 30px 0;
+}

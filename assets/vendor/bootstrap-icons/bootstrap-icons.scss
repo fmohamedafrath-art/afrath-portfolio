@@ -9,7 +9,7 @@ $bootstrap-icons-font-dir: "./fonts" !default;
 $bootstrap-icons-font-file: "#{$bootstrap-icons-font-dir}/#{$bootstrap-icons-font}" !default;
 $bootstrap-icons-font-hash: "24e3eb84d0bcaf83d77f904c78ac1f47" !default;
 $bootstrap-icons-font-src: url("#{$bootstrap-icons-font-file}.woff2?#{$bootstrap-icons-font-hash}") format("woff2"),
-                           url("#{$bootstrap-icons-font-file}.woff?#{$bootstrap-icons-font-hash}") format("woff") !default;
+  url("#{$bootstrap-icons-font-file}.woff?#{$bootstrap-icons-font-hash}") format("woff") !default;
 
 @font-face {
   font-display: block;
@@ -617,8 +617,8 @@ $bootstrap-icons-map: (
   "file-arrow-down": "\f346",
   "file-arrow-up-fill": "\f347",
   "file-arrow-up": "\f348",
-  "file-bar-graph-fill": "\f349",
-  "file-bar-graph": "\f34a",
+  "file-bar-Technicianh-fill": "\f349",
+  "file-bar-Technicianh": "\f34a",
   "file-binary-fill": "\f34b",
   "file-binary": "\f34c",
   "file-break-fill": "\f34d",
@@ -633,8 +633,8 @@ $bootstrap-icons-map: (
   "file-earmark-arrow-down": "\f356",
   "file-earmark-arrow-up-fill": "\f357",
   "file-earmark-arrow-up": "\f358",
-  "file-earmark-bar-graph-fill": "\f359",
-  "file-earmark-bar-graph": "\f35a",
+  "file-earmark-bar-Technicianh-fill": "\f359",
+  "file-earmark-bar-Technicianh": "\f35a",
   "file-earmark-binary-fill": "\f35b",
   "file-earmark-binary": "\f35c",
   "file-earmark-break-fill": "\f35d",
@@ -785,8 +785,8 @@ $bootstrap-icons-map: (
   "globe": "\f3ee",
   "globe2": "\f3ef",
   "google": "\f3f0",
-  "graph-down": "\f3f1",
-  "graph-up": "\f3f2",
+  "Technicianh-down": "\f3f1",
+  "Technicianh-up": "\f3f2",
   "grid-1x2-fill": "\f3f3",
   "grid-1x2": "\f3f4",
   "grid-3x2-gap-fill": "\f3f5",
@@ -980,7 +980,7 @@ $bootstrap-icons-map: (
   "palette": "\f4b1",
   "palette2": "\f4b2",
   "paperclip": "\f4b3",
-  "paragraph": "\f4b4",
+  "paraTechnicianh": "\f4b4",
   "patch-check-fill": "\f4b5",
   "patch-check": "\f4b6",
   "patch-exclamation-fill": "\f4b7",
@@ -1256,7 +1256,7 @@ $bootstrap-icons-map: (
   "text-indent-left": "\f5c5",
   "text-indent-right": "\f5c6",
   "text-left": "\f5c7",
-  "text-paragraph": "\f5c8",
+  "text-paraTechnicianh": "\f5c8",
   "text-right": "\f5c9",
   "textarea-resize": "\f5ca",
   "textarea-t": "\f5cb",
@@ -1426,8 +1426,8 @@ $bootstrap-icons-map: (
   "easel3": "\f66f",
   "fan": "\f670",
   "fingerprint": "\f671",
-  "graph-down-arrow": "\f672",
-  "graph-up-arrow": "\f673",
+  "Technicianh-down-arrow": "\f672",
+  "Technicianh-up-arrow": "\f673",
   "hypnotize": "\f674",
   "magic": "\f675",
   "person-rolodex": "\f676",
@@ -2086,5 +2086,7 @@ $bootstrap-icons-map: (
 );
 
 @each $icon, $codepoint in $bootstrap-icons-map {
-  .bi-#{$icon}::before { content: $codepoint; }
+  .bi-#{$icon}::before {
+    content: $codepoint;
+  }
 }
