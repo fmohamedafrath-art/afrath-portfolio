@@ -226,4 +226,21 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Theme Toggle
+   */
+  const themeToggle = document.querySelector('.theme-toggle');
+  const body = document.body;
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      let theme = 'light';
+      if (body.classList.contains('dark-theme')) {
+        theme = 'dark';
+      }
+      localStorage.setItem('theme', theme);
+    });
+  }
+
 })();

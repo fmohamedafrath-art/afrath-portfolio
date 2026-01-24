@@ -18,7 +18,16 @@
 
 .light-background .glass-effect {
     background: rgba(255, 255, 255, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(0, 0, 0, 0) !important;
+}
+
+body.dark-theme .glass-effect {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-theme .portfolio-external-link {
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .btn-portfolio {

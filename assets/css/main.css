@@ -64,6 +64,22 @@
   --contrast-color: #ffffff;
 }
 
+/* Dark Theme Variables */
+body.dark-theme {
+  --background-color: #040b14;
+  --default-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --surface-color: #1a2533;
+  --contrast-color: #ffffff;
+  --nav-color: #a8a9b4;
+  --nav-hover-color: #ffffff;
+}
+
+body.dark-theme .light-background {
+  --background-color: #0d1624;
+  --surface-color: #151f2b;
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -414,7 +430,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #ffffff;
+  border: 6px solid color-mix(in srgb, var(--default-color), transparent 85%);
   border-color: var(--accent-color) transparent var(--accent-color) transparent;
   border-radius: 50%;
   width: 60px;
@@ -464,6 +480,60 @@ h6 {
   visibility: visible;
   opacity: 1;
   bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# Theme Toggle
+--------------------------------------------------------------*/
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  background-color: var(--accent-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--contrast-color);
+  transition: all 0.3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  font-size: 20px;
+  line-height: 0;
+}
+
+@media (max-width: 1199px) {
+  .theme-toggle {
+    right: 70px;
+    /* Space for mobile nav toggle */
+  }
+}
+
+.theme-toggle .bi-sun {
+  display: none;
+}
+
+.theme-toggle .bi-moon {
+  display: block;
+}
+
+body.dark-theme .theme-toggle .bi-sun {
+  display: block;
+}
+
+body.dark-theme .theme-toggle .bi-moon {
+  display: none;
 }
 
 /*--------------------------------------------------------------
@@ -1051,6 +1121,12 @@ section,
   margin-bottom: 35px;
   border-radius: 6px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+
+body.dark-theme .testimonials .testimonial-item p {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 .testimonials .testimonial-item p::after {

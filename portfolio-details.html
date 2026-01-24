@@ -40,6 +40,13 @@
 
 <body class="portfolio-details-page">
 
+  <!-- Theme Toggle (Initial JS check to prevent flash) -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-theme');
+    }
+  </script>
+
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
@@ -61,7 +68,7 @@
       <a href="https://web.facebook.com/mohammed.afrath.897250" class="facebook" target="_blank"
         rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
       <a href="#" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus" target="_blank" rel="noopener noreferrer"><i class="bi bi-skype"></i></a>
+      <a href="#" class="skype" target="_blank" rel="noopener noreferrer"><i class="bi bi-skype"></i></a>
       <a href="https://www.linkedin.com/in/farook-mohamed-afrath-559a633a7" class="linkedin" target="_blank"
         rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
     </div>
@@ -200,6 +207,12 @@
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle d-flex align-items-center justify-content-center">
+    <i class="bi bi-moon"></i>
+    <i class="bi bi-sun"></i>
+  </div>
 
   <!-- Preloader -->
   <div id="preloader"></div>
